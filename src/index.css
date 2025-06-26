@@ -11,16 +11,13 @@
   display: flex;
 }
 
-.lightMode{
+.lightMde{
   --color: black;
   --bg-color: white;
-  --btn-bg-color: black;
-  --btn-color: white;
-  background-color: #fff;
-  color: #000;
-  --hover-color: #37343400;
-  transition: 0.3s;
+  --btn-bg-color : black;
+  --btn-color : white;
 }
+
 
 .darkMode{
   --color: white;
@@ -29,5 +26,9 @@
   --btn-color : black;
   background-color: #222;
   color: #fff;
-  transition: 0.3s;
+}
+
+.lightMode {
+  background-color: #fff;
+  color: #000;
 }

@@ -7,10 +7,8 @@
 }
 
 .topsection{
-
     width: 100%;
-    height: 75vh;
-    
+    height: 75vh; 
 }
 
 .bottomsection{
@@ -19,7 +17,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
     gap: 10px;
 }
 
@@ -56,10 +53,15 @@
     height: 50px;
     border-radius: 10px;
     border: 1px solid var(--color);
-    padding: 10px;
+    padding: 30px;
     font-size: 1.2rem;
     font-weight: 400;
     border-radius: 30px;
+    background-color: var(--bg-color);
+    color: var(--color);
+    outline: none;
+    box-shadow: 2px 2px 10px rgba(48, 3, 248, 0.1);
+    transition: 0.3s;
 }
 
 .bottomsection button{
