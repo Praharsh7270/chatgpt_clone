@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import './Chatsection.css'
+import './ChatSection.css'
 import { IoSend } from "react-icons/io5";
 import { generateResponse } from '../../geminiAPI/gemini.js';
 import Darkmode from '../darkMode/darkmode.jsx'
