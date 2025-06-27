@@ -4,11 +4,36 @@
     
     height: 100vh;
     flex: 1;
+    transition: margin-left 0.3s ease;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .chatsection {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Desktop adjustments */
+@media (min-width: 769px) {
+    .chatsection {
+        margin-left: 0;
+    }
 }
 
 .topsection{
     width: 100%;
     height: 75vh; 
+    overflow-y: auto;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .topsection {
+        padding: 15px;
+        height: 70vh;
+    }
 }
 
 .bottomsection{
@@ -18,6 +43,15 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .bottomsection {
+        height: 30vh;
+        padding: 0 15px;
+        gap: 8px;
+    }
 }
 
 .heading {
@@ -32,20 +66,147 @@
     font-weight: 600;
 }
 
-.heading span:nth-child(1){
+@media (max-width: 768px) {
+    .heading {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+}
 
+.heading span:nth-child(1){
     font-size: 4rem;
     background: linear-gradient(to right, #f13a3a, #ffffff);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
 
+@media (max-width: 768px) {
+    .heading span:nth-child(1) {
+        font-size: 2.5rem;
+    }
 }
 
 .heading span:nth-child(2){
     font-size: 2rem;
     font-weight: 400;
     opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .heading span:nth-child(2) {
+        font-size: 1.2rem;
+    }
+}
+
+/* Messages Container */
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .messages-container {
+        gap: 15px;
+        padding: 15px 0;
+    }
+}
+
+.message {
+    display: flex;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.ai-message {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 15px 20px;
+    border-radius: 20px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+    .message-content {
+        max-width: 85%;
+        padding: 12px 16px;
+    }
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.ai-message .message-content {
+    background: var(--bg-color);
+    border: 1px solid var(--color);
+    color: var(--color);
+    border-bottom-left-radius: 5px;
+}
+
+.error-message .message-content {
+    background: #ff6b6b;
+    color: white;
+    border: 1px solid #ff5252;
+}
+
+.message-content p {
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .message-content p {
+        font-size: 0.9rem;
+    }
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    display: block;
+    text-align: right;
+}
+
+.user-message .timestamp {
+    text-align: left;
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Disabled state for input and button */
+.bottomsection input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.bottomsection button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .bottomsection input{
@@ -64,6 +225,15 @@
     transition: 0.3s;
 }
 
+@media (max-width: 768px) {
+    .bottomsection input {
+        width: 75%;
+        height: 45px;
+        padding: 20px;
+        font-size: 1rem;
+    }
+}
+
 .bottomsection button{
     width: 50px;
     height: 50px;
@@ -72,4 +242,17 @@
     background-color: var(--btn-bg-color);
     color: var(--btn-color);
     cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .bottomsection button {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.bottomsection button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

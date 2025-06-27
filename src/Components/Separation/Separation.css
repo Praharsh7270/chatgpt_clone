@@ -3,3 +3,10 @@
     height: 100vh;
     background-color: rgb(190, 190, 190);
 }
+
+/* Hide separation on mobile */
+@media (max-width: 768px) {
+    .separation {
+        display: none;
+    }
+}

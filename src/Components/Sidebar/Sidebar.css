@@ -9,6 +9,33 @@
     gap: 20px;
     align-items: start;
     font-size: 17px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    width: 280px;
+}
+
+/* Mobile sidebar behavior */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+/* Desktop sidebar behavior */
+@media (min-width: 769px) {
+    .sidebar {
+        position: relative;
+        width: auto;
+        transform: translateX(0);
+        z-index: auto;
+    }
 }
 
 .sidebar svg{
@@ -19,7 +46,14 @@
 
 #hamburger{
     margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
+.hamburger-icon.open {
+    transform: rotate(90deg);
+}
+
 .newChat{
     display: flex;
     align-items: center;
@@ -29,6 +63,27 @@
     background-color: rgb(100, 184, 255);
     cursor: pointer;
     border-radius: 30px;
+    transition: all 0.3s ease;
+    width: 60px;
+    overflow: hidden;
+}
+
+.newChat.open {
+    width: 200px;
+}
+
+@media (max-width: 768px) {
+    .newChat.open {
+        width: 220px;
+    }
+}
+
+.newChat .text {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    color: white;
 }
 
 .recent{
@@ -37,9 +92,86 @@
     gap: 10px;
     justify-content: center;
     padding: 20px;
+    transition: all 0.3s ease;
+    width: 60px;
+    overflow: hidden;
+    flex-direction: column;
 }
 
+.recent.open {
+    width: 250px;
+    align-items: flex-start;
+}
 
+@media (max-width: 768px) {
+    .recent.open {
+        width: 220px;
+    }
+}
+
+.recent .text {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    color: white;
+}
+
+.recent-chats-list {
+    width: 100%;
+    margin-top: 15px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.recent-chat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.recent-chat-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.recent-chat-item.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-left: 3px solid white;
+}
+
+.chat-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.chat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.chat-title {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-time {
+    font-size: 11px;
+    opacity: 0.7;
+}
 
 .recent:hover {
     background-color: rgb(100, 184, 255);
